@@ -1,8 +1,9 @@
 import React from 'react';
 import NavBar from './components/MyNav'
-import SingleBook from './components/LatestRelease';
+import SingleBook from './components/SingleBook';
 import fantasy from "./data/fantasy.json"
 import Footer from './components/MyFooter'
+import { Container, Row, Col } from 'react-bootstrap'
 
 function App() {
 
@@ -10,7 +11,12 @@ function App() {
   return (
     <div className='App'>
       <NavBar />
-      {fantasy.map(props => <SingleBook title={props.title} image={props.img} />)}
+      <Container fluid>
+        <Row>
+          <SingleBook books={fantasy} />
+        </Row>
+      </Container>
+
       <Footer />
     </div>
   );
